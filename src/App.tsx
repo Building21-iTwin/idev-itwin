@@ -34,6 +34,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Auth } from "./Auth";
 import { history } from "./history";
+import { MyFirstUiProvider } from "./MyFirstUiProvider";
 
 const App: React.FC = () => {
   const [iModelId, setIModelId] = useState(process.env.IMJS_IMODEL_ID);
@@ -146,11 +147,13 @@ const App: React.FC = () => {
         iTwinId={iTwinId ?? ""}
         iModelId={iModelId ?? ""}
         changeSetId={changesetId}
+        
         authClient={authClient}
         viewCreatorOptions={viewCreatorOptions}
         enablePerformanceMonitors={true} // see description in the README (https://www.npmjs.com/package/@itwin/web-viewer-react)
         onIModelAppInit={onIModelAppInit}
         uiProviders={[
+          new MyFirstUiProvider(),
           new ViewerNavigationToolsProvider(),
           new ViewerContentToolsProvider({
             vertical: {
@@ -168,5 +171,5 @@ const App: React.FC = () => {
     </div>
   );
 };
- 
 
+export default App;
