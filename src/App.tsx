@@ -34,6 +34,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Auth } from "./Auth";
 import { history } from "./history";
+import { MyFirstUiProvider } from "./MyFirstUiProvider";
 
 const App: React.FC = () => {
   const [iModelId, setIModelId] = useState(process.env.IMJS_IMODEL_ID);
@@ -163,6 +164,7 @@ const App: React.FC = () => {
             enableCopyingPropertyText: true,
           }),
           new MeasureToolsUiItemsProvider(),
+          new MyFirstUiProvider(),
         ]}
       />
     </div>
