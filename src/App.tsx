@@ -166,6 +166,7 @@ const App: React.FC = () => {
             enableCopyingPropertyText: true,
           }),
           new MeasureToolsUiItemsProvider(),
+          new MyFirstUiProvider(),
         ]}
       />
     </div>
