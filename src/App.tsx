@@ -147,11 +147,13 @@ const App: React.FC = () => {
         iTwinId={iTwinId ?? ""}
         iModelId={iModelId ?? ""}
         changeSetId={changesetId}
+        
         authClient={authClient}
         viewCreatorOptions={viewCreatorOptions}
         enablePerformanceMonitors={true} // see description in the README (https://www.npmjs.com/package/@itwin/web-viewer-react)
         onIModelAppInit={onIModelAppInit}
         uiProviders={[
+          new MyFirstUiProvider(),
           new ViewerNavigationToolsProvider(),
           new ViewerContentToolsProvider({
             vertical: {
