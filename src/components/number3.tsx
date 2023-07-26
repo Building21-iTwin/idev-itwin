@@ -14,7 +14,7 @@ export default () => {
 
   const listElements: JSX.Element[] = [];
   myList.forEach((value:string) => {
-    listElements.push(<li>remove</li>)
+    listElements.push(<Button onClick={addremove}>Remove</Button>)
   });
   return (      <Flex flexDirection='column' alignItems='flex-start'>
       <Button onClick={addListItem}>Add Button</Button>
@@ -26,7 +26,9 @@ export default () => {
         </Flex>
   );
   function addremove(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-   
+    const myNewList = [...myList];
+    myNewList.pop();
+    setMyList(myNewList);
    
   }
  
