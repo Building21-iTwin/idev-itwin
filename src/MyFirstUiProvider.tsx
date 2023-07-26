@@ -5,6 +5,7 @@ import {
   Widget,
 } from '@itwin/appui-react';
 import DebugWidget  from './components/DebugWidget';
+import Waffle from './components/Waffle';
 
 
 export class MyFirstUiProvider implements UiItemsProvider {
@@ -23,6 +24,12 @@ export class MyFirstUiProvider implements UiItemsProvider {
     content: <DebugWidget/>
     }
     widgets.push(DW);
+    const W: Widget = {
+      id:'Waffle',
+      label:'Waffle',
+      content: <Waffle/>
+    }
+    widgets.push(W)
     return widgets;
   }
 }
