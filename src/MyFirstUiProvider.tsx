@@ -4,12 +4,17 @@ import {
   UiItemsProvider,
   Widget,
 } from '@itwin/appui-react';
+
 import React from 'react';
 import { KeySet } from '@itwin/presentation-common';
 import { ISelectionProvider, Presentation, SelectionChangeEventArgs } from '@itwin/presentation-frontend';
 import { text } from 'stream/consumers';
 import { LabeledInput } from '@itwin/itwinui-react';
 import Number3 from './components/number3';
+
+import DebugWidget  from './components/DebugWidget';
+import Togglewidget  from './components/Togglewidget';
+
 
 const DebugWidget = () => {
 const [selectedElements, setSelectedElements] = React.useState<Readonly<KeySet>>(new KeySet([]));
@@ -57,6 +62,16 @@ export class MyFirstUiProvider implements UiItemsProvider {
       widgets.push(AB);
       return widgets;
 
+    const TW: Widget = {
+      id: 'ToggleWidget',
+      label:'ToggleWidget', 
+      content: <Togglewidget/>
+    }
+      widgets.push(TW);
+
+    return widgets;
+
+   
   }
 
 }
