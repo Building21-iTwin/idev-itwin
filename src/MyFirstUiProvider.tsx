@@ -9,6 +9,7 @@ import DebugWidget  from './components/DebugWidget';
 import Waffle from './components/Waffle';
 import TextBoxWidget from './components/TextBoxWidget';
 import Togglewidget  from './components/Togglewidget';
+import React from 'react';
 
 export class MyFirstUiProvider implements UiItemsProvider {
   public readonly id = 'HelloWorldProvider';
