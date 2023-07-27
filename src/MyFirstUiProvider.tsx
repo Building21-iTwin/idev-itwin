@@ -15,6 +15,7 @@ import Number3 from './components/number3';
 import DebugWidget  from './components/DebugWidget';
 import TextBoxWidget from './components/TextBoxWidget';
 import Togglewidget  from './components/Togglewidget';
+import React from 'react';
 
 const DebugWidget = () => {
 const [selectedElements, setSelectedElements] = React.useState<Readonly<KeySet>>(new KeySet([]));
