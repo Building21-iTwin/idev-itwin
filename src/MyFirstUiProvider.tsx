@@ -5,8 +5,9 @@ import {
   Widget,
 } from '@itwin/appui-react';
 import DebugWidget  from './components/DebugWidget';
-import React from 'react';
 import TextBoxWidget from './components/TextBoxWidget';
+import Togglewidget  from './components/Togglewidget';
+
 export class MyFirstUiProvider implements UiItemsProvider {
   public readonly id = 'HelloWorldProvider';
   public provideWidgets(
@@ -23,12 +24,23 @@ export class MyFirstUiProvider implements UiItemsProvider {
     content: <DebugWidget/>
     }
     widgets.push(DW);
+
     const TBW: Widget = {
       id: 'TextBoxWidget',
       label:'TextBoxWidget', 
       content: <TextBoxWidget/>
       }
       widgets.push(TBW);
+
+    const TW: Widget = {
+      id: 'ToggleWidget',
+      label:'ToggleWidget', 
+      content: <Togglewidget/>
+    }
+      widgets.push(TW);
+
     return widgets;
+
+   
   }
 }
