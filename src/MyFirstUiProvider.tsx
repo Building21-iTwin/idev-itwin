@@ -7,6 +7,7 @@ import {
 import DebugWidget  from './components/DebugWidget';
 import TextBoxWidget from './components/TextBoxWidget';
 import Togglewidget  from './components/Togglewidget';
+import React from 'react';
 
 export class MyFirstUiProvider implements UiItemsProvider {
   public readonly id = 'HelloWorldProvider';
