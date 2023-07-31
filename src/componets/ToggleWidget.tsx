@@ -1,7 +1,7 @@
 import { Button, Checkbox, ToggleSwitch } from "@itwin/itwinui-react";
 import React from "react";
 
-const BananaWidget = () => {
+const ToggleWidget = () => {
   const [toggleToggled, setToggleToggled] = React.useState<boolean>(false);
   const [checkBoxEnabled, setCheckBoxEnabled] = React.useState<boolean>(false);
   const [checkBoxChecked, setCheckBoxChecked] = React.useState<boolean>(false);
@@ -32,4 +32,4 @@ const BananaWidget = () => {
 
 }
 
-export default BananaWidget;
+export default ToggleWidget;

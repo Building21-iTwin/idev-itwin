@@ -5,18 +5,26 @@ import React from "react";
 
 
 const NumberedListWidget = () => {
-  const [entries, setEntries] = React.useState<number[]>([]);
+  const [count, setCount] = React.useState<number>(0);
+  const [entries, setEntries] = React.useState<string[]>([]);
 
 
   function addEntry(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
     const newEntries = [...entries];
-    newEntries.push(entries.length);
+    newEntries.push(count.toString());
+    setCount(count + 1);
+    setEntries(newEntries);
+  }
+
+  function removeButton(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+    const buttonId = event.currentTarget.id;
+    const newEntries = entries.filter((value: string) => {return value !== buttonId});
     setEntries(newEntries);
   }
 
   const listElements: JSX.Element[] = [];
-  entries.forEach((value: number) => {
-    listElements.push(<li>{value}<Button id={value.toString()}>Remove</Button></li>)
+  entries.forEach((value: string) => {
+    listElements.push(<li>{value}<Button id={value} onClick={removeButton}>Remove</Button></li>)
   })
 
   return (<div>
@@ -28,3 +36,4 @@ const NumberedListWidget = () => {
 }
 
 export default NumberedListWidget;
+

@@ -6,7 +6,7 @@ import {
 } from '@itwin/appui-react';
 import DebugWidget from './componets/DebugWidget';
 import ActionWidget from './componets/ActionWidget';
-import BananaWidget from './componets/BananaWidget';
+import ToggleWidget from './componets/ToggleWidget';
 import TextRunWidget from './componets/TextRunWidget';
 import SortedListWidget from './componets/SortedListWidget';
 import NumberedListWidget from './componets/NumberedListWidget';
@@ -38,7 +38,7 @@ export class MyFirstUiProvider implements UiItemsProvider {
     const bananaWidget: Widget = {
       id: 'bananda',
       label: 'banana!',
-      content: <BananaWidget/>
+      content: <ToggleWidget/>
     }
     widgets.push(bananaWidget);
 
