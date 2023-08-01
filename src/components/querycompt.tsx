@@ -1,6 +1,12 @@
-import React from "react";
+import * as React from 'react';
+import { Checkbox, Flex } from '@itwin/itwinui-react';
 
-const querycompt = () => {
-return (<div> </div>);
+const Querycompt = () => {
+return (<div>
+ <Flex>  
+ <Checkbox/>
+ </Flex>
+</div>)
 };
-export default querycompt
+export default Querycompt
+
