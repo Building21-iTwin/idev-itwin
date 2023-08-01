@@ -10,8 +10,7 @@ import Waffle from './components/Waffle';
 import TextBoxWidget from './components/TextBoxWidget';
 import Togglewidget  from './components/Togglewidget';
 import Emphasizewidget from './components/Emphasizewidget';
-
-
+import React from 'react';
 export class MyFirstUiProvider implements UiItemsProvider {
   public readonly id = 'HelloWorldProvider';
   public provideWidgets(
