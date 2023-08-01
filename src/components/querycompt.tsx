@@ -5,7 +5,7 @@ const Querycompt = () => {
 return (<div>
  <Flex>  
  <Checkbox/>
- </Flex>
+ </Flex> 
 </div>)
 };
 export default Querycompt
