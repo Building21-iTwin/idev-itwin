@@ -67,6 +67,7 @@ const EW: Widget = {
   label: 'EmphasizeWidget',
   content: <Emphasizewidget/>
 }
+
 widgets.push(EW)
 
     return widgets;
