@@ -9,7 +9,8 @@ import DebugWidget  from './components/DebugWidget';
 import Waffle from './components/Waffle';
 import TextBoxWidget from './components/TextBoxWidget';
 import Togglewidget  from './components/Togglewidget';
-
+import Emphasizewidget from './components/Emphasizewidget';
+import React from 'react';
 export class MyFirstUiProvider implements UiItemsProvider {
   public readonly id = 'HelloWorldProvider';
   public provideWidgets(
@@ -42,22 +43,34 @@ export class MyFirstUiProvider implements UiItemsProvider {
       content: <Number3/>
       }
       widgets.push(AB);
-      const TBW: Widget = {
-        id: 'TextBoxWidget',
-        label:'TextBoxWidget', 
-        content: <TextBoxWidget/>
-        }
-        widgets.push(TBW);
-  
-  
-      const TW: Widget = {
-        id: 'ToggleWidget',
-        label:'ToggleWidget', 
-        content: <Togglewidget/>
+      
+
+    const TBW: Widget = {
+      id: 'TextBoxWidget',
+      label:'TextBoxWidget', 
+      content: <TextBoxWidget/>
       }
-      widgets.push(TW);
-  
-      return widgets;
+      widgets.push(TBW);
+
+
+    const TW: Widget = {
+      id: 'ToggleWidget',
+      label:'ToggleWidget', 
+      content: <Togglewidget/>
+    }
+    widgets.push(TW);
+
+
+const EW: Widget = {
+  id: 'EmphasizeWidget',
+  label: 'EmphasizeWidget',
+  content: <Emphasizewidget/>
+}
+
+widgets.push(EW)
+
+    return widgets;
+
    
   }
 
