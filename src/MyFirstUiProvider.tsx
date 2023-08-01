@@ -42,25 +42,22 @@ export class MyFirstUiProvider implements UiItemsProvider {
       content: <Number3/>
       }
       widgets.push(AB);
-      return widgets;
-
-    const TBW: Widget = {
-      id: 'TextBoxWidget',
-      label:'TextBoxWidget', 
-      content: <TextBoxWidget/>
+      const TBW: Widget = {
+        id: 'TextBoxWidget',
+        label:'TextBoxWidget', 
+        content: <TextBoxWidget/>
+        }
+        widgets.push(TBW);
+  
+  
+      const TW: Widget = {
+        id: 'ToggleWidget',
+        label:'ToggleWidget', 
+        content: <Togglewidget/>
       }
-      widgets.push(TBW);
-
-
-    const TW: Widget = {
-      id: 'ToggleWidget',
-      label:'ToggleWidget', 
-      content: <Togglewidget/>
-    }
-    widgets.push(TW);
-
-    return widgets;
-
+      widgets.push(TW);
+  
+      return widgets;
    
   }
 
