@@ -54,7 +54,7 @@ const Querycompt = ({
         <Flex>
             <Checkbox checked={checkBoxChecked} onChange={checked}/>
             <Button onClick={remove}>Remove</Button>
-            <ColorPickerButton initialColor={ColorDef.blue} onColorPick={colorChanged}/>
+            <ColorPickerButton initialColor={color} onColorPick={colorChanged}/>
             <Textarea
                 id='text-area'
                 value={value}

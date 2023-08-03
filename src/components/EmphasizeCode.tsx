@@ -1,9 +1,9 @@
 import { EmphasizeElements, IModelApp } from "@itwin/core-frontend";
-import { QueryProps } from "./Querycompt";
+import { Queryprops } from "./querycompt";
 import { Id64Array } from "@itwin/core-bentley";
 import { FeatureOverrideType } from "@itwin/core-common";
 
-export const updateEmphasis = async (queries: QueryProps[]) => {
+export const updateEmphasis = async (queries: Queryprops[]) => {
   const view = IModelApp.viewManager.selectedView;
   if (undefined === view) {
     return;

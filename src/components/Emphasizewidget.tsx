@@ -31,7 +31,7 @@ function removedclick(id: number): void {
 }
 const queryElements: JSX.Element[] = [];
 queryList.forEach((p: Queryprops) => {
-    queryElements.push(<Querycompt props={p} handleChange={queryChanged} removeClick={removedclick} />)
+    queryElements.push(<Querycompt key={p.id} props={p} handleChange={queryChanged} removeClick={removedclick} />)
 });
     return (<div>
        <Button onClick={addQuery}>Add</Button>

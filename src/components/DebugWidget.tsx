@@ -1,4 +1,3 @@
-import { LabeledInput } from "@itwin/itwinui-react";
 import { KeySet } from "@itwin/presentation-common";
 import { ISelectionProvider, Presentation, SelectionChangeEventArgs } from "@itwin/presentation-frontend";
 import React from "react";
