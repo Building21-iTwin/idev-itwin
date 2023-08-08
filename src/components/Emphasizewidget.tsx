@@ -44,14 +44,15 @@ const Emphasizewidget = () => {
 
 
     return (<div>
-        <Button styleType='high-visibility' onClick={addQuery}>Add</Button>
-        <Button styleType='high-visibility' onClick={Cheese}>Emphasize</Button>
-        <Button>Clear</Button>
+        <Flex style={{ padding: '5px 5px 5px' }} flexDirection="row">
+            <Button styleType='cta' onClick={addQuery}>Add</Button>
+            <Button styleType='cta' onClick={Cheese}>Emphasize</Button>
+            <Button styleType='cta' >Clear</Button>
+        </Flex>
         <Flex flexDirection="column">
             {queryElements}
         </Flex>
     </div>);
 };
-
 
 export default Emphasizewidget

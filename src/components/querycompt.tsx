@@ -48,8 +48,9 @@ const Querycompt = ({
         setColor(color);
     }
 
-    return (<div>
-        <Flex>
+
+    return (
+        <Flex style={{ width: '95%' }}>
             <Checkbox checked={checkBoxChecked} onChange={checked} />
             <ColorPickerButton initialColor={color} onColorPick={colorChanged} />
             <Button styleType='high-visibility' onClick={remove}>Remove</Button>
@@ -60,7 +61,7 @@ const Querycompt = ({
                 style={{ width: '70%' }}
             />
         </Flex>
-    </div>)
+    )
 };
 
 export default Querycompt
