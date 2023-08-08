@@ -38,14 +38,6 @@ function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>)
  updateEmphasis (queryList);
 }
 
-function openWin() {
-    const win = window.open('', '', 'width=400, height=200');
-  }
-  
-  function moveWin() {
-    window.moveTo(500, 100);
-  }
-  
 
 const queryElements: JSX.Element[] = [];
 queryList.forEach((p: Queryprops) => {
@@ -56,12 +48,9 @@ queryList.forEach((p: Queryprops) => {
     return (<div>
         <Flex style={{ padding: '5px 5px 5px' }} flexDirection="row">
             <Button styleType='cta' onClick={addQuery}>Add</Button>
-            <Button styleType='cta' onClick={Cheese}>Emphasize</Button>
+            <Button styleType='cta' onClick={ emphasizeQuery}>Emphasize</Button>   
             <Button styleType='cta' >Clear</Button>
         </Flex>
-       <Button onClick={addQuery}>Add</Button>
-    <Button onClick={emphasizeQuery}>Emphasize</Button>
-        <Button>Clear</Button>
         <Flex flexDirection="column">
             {queryElements}
         </Flex>

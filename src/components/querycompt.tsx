@@ -49,7 +49,6 @@ const Querycompt = ({
     }
     
 
-
     return (
         <Flex style={{ width: '95%' }}>
             <Checkbox checked={checkBoxChecked} onChange={checked} />
