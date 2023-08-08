@@ -15,19 +15,19 @@ export class MyFirstUiProvider implements UiItemsProvider {
   public readonly id = 'HelloWorldProvider';
   public provideWidgets(
     _stageId: string,
-    stageUsage: string,
-    location: StagePanelLocation,
-    section?: StagePanelSection
+    _stageUsage: string,
+    _location: StagePanelLocation,
+    _section?: StagePanelSection
   ): ReadonlyArray<Widget> {
     const widgets: Widget[] = [];
-
-    const DW: Widget = {
-    id: 'DebugWidget',
-    label:'DebugWidget', 
-    content: <DebugWidget/>
+    
+if (_location === StagePanelLocation.Bottom){
+  const TBW: Widget = {
+    id: 'TextBoxWidget',
+    label:'TextBoxWidget', 
+    content: <TextBoxWidget/>
     }
-    widgets.push(DW);
-
+    widgets.push(TBW);
 
     const W: Widget = {
       id:'Waffle',
@@ -35,7 +35,14 @@ export class MyFirstUiProvider implements UiItemsProvider {
       content: <Waffle/>
     }
     widgets.push(W)
+}
 
+const DW: Widget = {
+    id: 'DebugWidget',
+    label:'DebugWidget', 
+    content: <DebugWidget/>
+    }
+    widgets.push(DW);
 
     const AB: Widget = {
       id: 'Add Button',
@@ -44,22 +51,12 @@ export class MyFirstUiProvider implements UiItemsProvider {
       }
       widgets.push(AB);
       
-
-    const TBW: Widget = {
-      id: 'TextBoxWidget',
-      label:'TextBoxWidget', 
-      content: <TextBoxWidget/>
-      }
-      widgets.push(TBW);
-
-
     const TW: Widget = {
       id: 'ToggleWidget',
       label:'ToggleWidget', 
       content: <Togglewidget/>
     }
     widgets.push(TW);
-
 
 const EW: Widget = {
   id: 'EmphasizeWidget',
