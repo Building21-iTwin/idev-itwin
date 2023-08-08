@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, Textarea } from '@itwin/itwinui-react';
 import { Checkbox, Flex } from '@itwin/itwinui-react';
-import { ColorDef } from '@itwin/core-common';
+import { ColorDef, FeatureOverrideType } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
 
 export interface Queryprops {
@@ -24,7 +24,7 @@ const Querycompt = ({
 }: QueryComponentProps) => {
     const [value, setvalue] = React.useState<string>(props.query);
     const [checkBoxChecked, setCheckBoxChecked] = React.useState<boolean>(props.enabled);
-    const [color, setColor] = React.useState<ColorDef> (props.color);
+    const [color, setColor] = React.useState<ColorDef>(props.color);
 
     function remove(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
         removeClick(props.id)
@@ -51,9 +51,9 @@ const Querycompt = ({
 
     return (<div>
         <Flex>
-            <Checkbox checked={checkBoxChecked} onChange={checked}/>
-            <Button onClick={remove}>Remove</Button>
-            <ColorPickerButton initialColor={color} onColorPick={colorChanged}/>
+            <Checkbox checked={checkBoxChecked} onChange={checked} />
+            <ColorPickerButton initialColor={color} onColorPick={colorChanged} />
+            <Button styleType='high-visibility' onClick={remove}>Remove</Button>
             <Textarea
                 id='text-area'
                 value={value}

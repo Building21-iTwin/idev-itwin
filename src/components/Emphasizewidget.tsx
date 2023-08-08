@@ -7,7 +7,7 @@ import { updateEmphasis } from "./EmphasizeCode";
 const Emphasizewidget = () => {
 const [queryList, SetQueryList] = React.useState<Queryprops[]>([]);
 const [count, setCount] = React.useState<number>(0);
-const [EmphasisList, SetupdateEmphasis] = React.useState<Queryprops[]>([])
+const [] = React.useState<Queryprops[]>([])
 
 
 function addQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void{
