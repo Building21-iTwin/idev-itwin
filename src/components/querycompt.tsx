@@ -4,22 +4,6 @@ import { Checkbox, Flex } from '@itwin/itwinui-react';
 import { ColorDef } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
 
-<<<<<<< HEAD
-const Querycompt = () => { const [value, setvalue] = React.useState <string>("");
-return (<div>
- <Flex>  
- <Checkbox/>
- <Textarea
-    id='text-area'
-    value={value}
-    onChange={(event) => setvalue(event.target.value)}
-    style={{ width: '70%' }}
-  />
- </Flex> 
-</div>)
-=======
-
-
 export interface Queryprops {
     id: number;
     enabled: boolean;
@@ -63,6 +47,7 @@ const Querycompt = ({
         handleChange(props);
         setColor(color);
     }
+    
 
     return (<div>
         <Flex>
@@ -73,11 +58,11 @@ const Querycompt = ({
                 id='text-area'
                 value={value}
                 onChange={queryChanged}
-                style={{ width: '70%' }}
+                style={{ width: '100%' }}
             />
         </Flex>
     </div>)
->>>>>>> 2b4f706f85908cc2da8050bd299b1b7f4622ffce
 };
+
 
 export default Querycompt
