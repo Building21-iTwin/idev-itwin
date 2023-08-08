@@ -47,6 +47,7 @@ const Querycompt = ({
         handleChange(props);
         setColor(color);
     }
+    
 
 
     return (
@@ -58,10 +59,11 @@ const Querycompt = ({
                 id='text-area'
                 value={value}
                 onChange={queryChanged}
-                style={{ width: '70%' }}
+                style={{ width: '100%' }}
             />
         </Flex>
     )
 };
+
 
 export default Querycompt
