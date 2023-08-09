@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, Textarea } from '@itwin/itwinui-react';
 import { Checkbox, Flex } from '@itwin/itwinui-react';
-import { ColorDef, FeatureOverrideType } from '@itwin/core-common';
+import { ColorDef } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
 
 export interface Queryprops {
@@ -21,7 +21,8 @@ const Querycompt = ({
     props,
     handleChange,
     removeClick
-}: QueryComponentProps) => {
+}:     
+QueryComponentProps) => {
     const [value, setvalue] = React.useState<string>(props.query);
     const [checkBoxChecked, setCheckBoxChecked] = React.useState<boolean>(props.enabled);
     const [color, setColor] = React.useState<ColorDef>(props.color);
@@ -48,20 +49,19 @@ const Querycompt = ({
         setColor(color);
     }
     
-    return (<div>
-         <Flex>
-         <Checkbox label=""defaultChecked={checkBoxChecked} onChange={checked} />
-         <ColorPickerButton disabled={!checkBoxChecked} onColorPick={colorChanged} initialColor={color} />
-            <Button styleType='high-visibility' onClick={remove}>Remove</Button>
-            <Textarea
-                id='text-area'
-                value={value}
-                onChange={queryChanged}
-                style={{ width: '100%' }}
-                disabled={!checkBoxChecked}
+    return (
+     <Flex style={{padding: '5px', width: '100%' }}>
+       <Checkbox label=""defaultChecked={checkBoxChecked} onChange={checked} />
+       <ColorPickerButton disabled={!checkBoxChecked} onColorPick={colorChanged} initialColor={color} />
+         <Button styleType='high-visibility' onClick={remove}>Remove</Button>
+         <Textarea
+             id='text-area'
+             value={value}
+             onChange={queryChanged}
+             style={{ width: '100%' }}
+            disabled={!checkBoxChecked}
             />
         </Flex>
-     </div>
     )
 };
 export default Querycompt
