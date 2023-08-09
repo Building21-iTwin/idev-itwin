@@ -1,10 +1,8 @@
-import { KeySet } from "@itwin/presentation-common";
-import { ISelectionProvider, Presentation, SelectionChangeEventArgs } from "@itwin/presentation-frontend";
 import * as React from "react";
 import { LabeledInput } from '@itwin/itwinui-react';
 import { Button, Flex } from '@itwin/itwinui-react';
 
-export default () =>{
+export default () => {
     const [inputtext, setinputtext] = React.useState<string>("");
     const [outputtext, setoutputtext] = React.useState<string>("");
     const [previousbutton, setpreviousbutton] = React.useState<string[]>([]);
@@ -26,7 +24,7 @@ export default () =>{
         const newpreviousbutton = [...previousbutton];
         const previous = newpreviousbutton.pop()
         setpreviousbutton(newpreviousbutton);
-        if (previous != undefined){
+        if (previous !== undefined){
             setoutputtext(previous);
         }
       

@@ -4,65 +4,36 @@ import {
   UiItemsProvider,
   Widget,
 } from '@itwin/appui-react';
-import Number3 from './components/number3';
 import DebugWidget  from './components/DebugWidget';
-import Waffle from './components/Waffle';
-import TextBoxWidget from './components/TextBoxWidget';
-import Togglewidget  from './components/Togglewidget';
+import Emphasizewidget from './components/Emphasizewidget';
 import React from 'react';
 
 export class MyFirstUiProvider implements UiItemsProvider {
   public readonly id = 'HelloWorldProvider';
   public provideWidgets(
     _stageId: string,
-    stageUsage: string,
-    location: StagePanelLocation,
-    section?: StagePanelSection
+    _stageUsage: string,
+    _location: StagePanelLocation,
+    _section?: StagePanelSection
   ): ReadonlyArray<Widget> {
     const widgets: Widget[] = [];
-
+    
     const DW: Widget = {
-    id: 'DebugWidget',
-    label:'DebugWidget', 
-    content: <DebugWidget/>
+      id: 'DebugWidget',
+      label:'DebugWidget', 
+      content: <DebugWidget/>
     }
-    widgets.push(DW);
+    widgets.push(DW)
 
-
-    const W: Widget = {
-      id:'Waffle',
-      label:'Waffle',
-      content: <Waffle/>
+    const EW: Widget = {
+      id: 'EmphasizeWidget',
+      label: 'EmphasizeWidget',
+      content: <Emphasizewidget/>
     }
-    widgets.push(W)
-
-
-    const AB: Widget = {
-      id: 'Add Button',
-      label:'Add Button', 
-      content: <Number3/>
-      }
-      widgets.push(AB);
-      return widgets;
-
-    const TBW: Widget = {
-      id: 'TextBoxWidget',
-      label:'TextBoxWidget', 
-      content: <TextBoxWidget/>
-      }
-      widgets.push(TBW);
-
-
-    const TW: Widget = {
-      id: 'ToggleWidget',
-      label:'ToggleWidget', 
-      content: <Togglewidget/>
-    }
-    widgets.push(TW);
+    widgets.push(EW)
 
     return widgets;
 
-   
   }
 
 }
