@@ -3,10 +3,17 @@ import { Queryprops } from "./querycompt";
 import { Id64Array } from "@itwin/core-bentley";
 import { FeatureOverrideType } from "@itwin/core-common";
 
-export const updateEmphasis = async (queries: Queryprops[]) => {
+export interface QueryError {
+  id: number;
+  message: string;
+}
+
+export const updateEmphasis = async (queries: Queryprops[]): Promise<QueryError[]> => {
+  const results:QueryError[] = [];
+
   const view = IModelApp.viewManager.selectedView;
   if (undefined === view) {
-    return;
+    return results;
   }
 
   const emphasize = EmphasizeElements.getOrCreate(view);
@@ -25,13 +32,15 @@ export const updateEmphasis = async (queries: Queryprops[]) => {
       }
       emphasize.overrideElements(idsToEmphasize, view, item.color, FeatureOverrideType.ColorOnly, false);
     } catch (e: any) {
+        results.push({id: item.id, message: e.message});
         console.log (e.message)
     }
     }
   }
+  return results;
 }
 
-export const clearEmphasis = async () => {
+export const clearEmphasis = () => {
   const view = IModelApp.viewManager.selectedView;
   if (undefined === view) {
     return;
