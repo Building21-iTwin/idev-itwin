@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Flex } from "@itwin/itwinui-react";
 import { ColorDef } from "@itwin/core-common/lib/cjs/ColorDef";
 import Querycompt, { Queryprops } from "./querycompt";
-import { clearEmphasis, updateEmphasis } from "./EmphasizeCode";
+import { ErrorReport, clearEmphasis, updateEmphasis } from "./EmphasizeCode";
 
 const Emphasizewidget = () => {
     const [queryList, SetQueryList] = React.useState<Queryprops[]>([]);
@@ -32,14 +32,24 @@ const Emphasizewidget = () => {
         SetQueryList(newList);
     }
 
+    function handleError(report: ErrorReport[]) {
+      const newQueryList = queryList.map( (q: Queryprops) => {
+        const errorMessage = report.find((e:ErrorReport) => e.id === q.id);
+        const newProps = {...q, errorMessage: errorMessage ? errorMessage.message : undefined};
+        return newProps;
+      })
+      SetQueryList(newQueryList);
+    }
+
     function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void { 
-        updateEmphasis (queryList);
+        updateEmphasis (queryList, handleError);
     }
 
     const queryElements: JSX.Element[] = [];
     queryList.forEach((p: Queryprops) => {
         queryElements.push(<Querycompt key={p.id} props={p} handleChange={queryChanged} removeClick={removedclick} />)
     });
+
 
     function clearQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
        clearEmphasis ()
