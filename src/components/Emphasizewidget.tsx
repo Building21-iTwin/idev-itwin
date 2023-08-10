@@ -32,10 +32,10 @@ const Emphasizewidget = () => {
         SetQueryList(newList);
     }
 
-    function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void { 
-        updateEmphasis (queryList);
+    async function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> { 
+        const queryErrors = await updateEmphasis (queryList);
     }
-
+    
     const queryElements: JSX.Element[] = [];
     queryList.forEach((p: Queryprops) => {
         queryElements.push(<Querycompt key={p.id} props={p} handleChange={queryChanged} removeClick={removedclick} />)
