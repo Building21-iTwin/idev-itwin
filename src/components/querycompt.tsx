@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Textarea } from '@itwin/itwinui-react';
+import { Button, LabeledTextarea, Textarea } from '@itwin/itwinui-react';
 import { Checkbox, Flex } from '@itwin/itwinui-react';
 import { ColorDef } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
@@ -9,6 +9,8 @@ export interface Queryprops {
     enabled: boolean;
     color: ColorDef;
     query: string;
+    valid?: boolean;
+    errormessage?: string;
 }
 
 export interface QueryComponentProps {
@@ -54,13 +56,16 @@ QueryComponentProps) => {
        <Checkbox label=""defaultChecked={checkBoxChecked} onChange={checked} />
        <ColorPickerButton disabled={!checkBoxChecked} onColorPick={colorChanged} initialColor={color} />
          <Button styleType='high-visibility' onClick={remove}>Remove</Button>
-         <Textarea
+         <LabeledTextarea
              id='text-area'
              value={value}
              onChange={queryChanged}
              style={{ width: '100%' }}
             disabled={!checkBoxChecked}
-            />
+            label= ' '
+            message={props.errormessage}
+            status='negative'
+      />
         </Flex>
     )
 };
