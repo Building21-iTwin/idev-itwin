@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Textarea } from '@itwin/itwinui-react';
+import { Button, LabeledTextarea, Textarea } from '@itwin/itwinui-react';
 import { Checkbox, Flex } from '@itwin/itwinui-react';
 import { ColorDef } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
@@ -9,6 +9,8 @@ export interface Queryprops {
     enabled: boolean;
     color: ColorDef;
     query: string;
+    valid?: boolean;
+    errormessage?: string
 }
 
 export interface QueryComponentProps {
@@ -26,7 +28,7 @@ QueryComponentProps) => {
     const [value, setvalue] = React.useState<string>(props.query);
     const [checkBoxChecked, setCheckBoxChecked] = React.useState<boolean>(props.enabled);
     const [color, setColor] = React.useState<ColorDef>(props.color);
-
+    
     function remove(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
         removeClick(props.id)
     };
@@ -48,19 +50,23 @@ QueryComponentProps) => {
         handleChange(props);
         setColor(color);
     }
-    
+    let s:undefined | "positive" | "negative"= undefined
+    if (props.valid=== true) {s= 'positive'}
+    if (props.valid=== false) {s= 'negative'}
+
     return (
      <Flex style={{padding: '5px', width: '100%' }}>
        <Checkbox label=""defaultChecked={checkBoxChecked} onChange={checked} />
        <ColorPickerButton disabled={!checkBoxChecked} onColorPick={colorChanged} initialColor={color} />
          <Button styleType='high-visibility' onClick={remove}>Remove</Button>
-         <Textarea
-             id='text-area'
-             value={value}
-             onChange={queryChanged}
-             style={{ width: '100%' }}
-            disabled={!checkBoxChecked}
-            />
+         <LabeledTextarea
+                id='text-area'
+                value={value}
+                onChange={queryChanged}
+                style={{ width: '100%' }}
+                disabled={!checkBoxChecked} label={undefined} 
+                status= {s}
+                message= ""     />
         </Flex>
     )
 };
