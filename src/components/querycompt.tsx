@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, LabeledTextarea, Textarea } from '@itwin/itwinui-react';
+import { Button, LabeledTextarea } from '@itwin/itwinui-react';
 import { Checkbox, Flex } from '@itwin/itwinui-react';
 import { ColorDef } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
