@@ -10,7 +10,7 @@ export interface Queryprops {
     color: ColorDef;
     query: string;
     valid?: boolean;
-    errormessage?: string;
+    errorMessage?: string;
 }
 
 export interface QueryComponentProps {
@@ -63,7 +63,7 @@ QueryComponentProps) => {
              style={{ width: '100%' }}
             disabled={!checkBoxChecked}
             label= ' '
-            message={props.errormessage}
+            message={props.errorMessage}
             status='negative'
       />
         </Flex>
