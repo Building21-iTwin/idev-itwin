@@ -9,6 +9,7 @@ export interface Queryprops {
     enabled: boolean;
     color: ColorDef;
     query: string;
+
     valid?: boolean;
     errorMessage?: string;
 }
@@ -65,7 +66,7 @@ QueryComponentProps) => {
             label= ' '
             message={props.errorMessage}
             status='negative'
-      />
+            />
         </Flex>
     )
 };
