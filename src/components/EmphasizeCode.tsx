@@ -1,11 +1,24 @@
 import { EmphasizeElements, IModelApp } from "@itwin/core-frontend";
 import { Queryprops } from "./querycompt";
 import { Id64Array } from "@itwin/core-bentley";
-import { FeatureOverrideType } from "@itwin/core-common";
+import { ColorDef, FeatureOverrideType } from "@itwin/core-common";
 
 export interface QueryError {
   id: number;
   message: string;
+}
+
+export const emphasizeElements = async (elements: Id64Array): Promise<void> => {
+  const view = IModelApp.viewManager.selectedView;
+  if (undefined === view) {
+    return;
+  }
+
+  const emphasize = EmphasizeElements.getOrCreate(view);
+  emphasize.clearEmphasizedElements(view);
+  emphasize.clearOverriddenElements(view);
+  emphasize.overrideElements(elements, view, ColorDef.white, FeatureOverrideType.ColorOnly, true);
+  emphasize.isolateElements(elements, view, true);
 }
 
 export const updateEmphasis = async (queries: Queryprops[]): Promise<QueryError[]> => {
@@ -49,4 +62,5 @@ export const clearEmphasis = () => {
   const emphasize = EmphasizeElements.getOrCreate(view);
   emphasize.clearEmphasizedElements(view);
   emphasize.clearOverriddenElements(view);
+  emphasize.clearIsolatedElements(view);
 }
