@@ -4,7 +4,6 @@ import { ColorDef } from "@itwin/core-common/lib/cjs/ColorDef";
 import Querycompt, { Queryprops } from "./querycompt";
 import { QueryError, clearEmphasis, updateEmphasis } from "./EmphasizeCode";
 
-
 const Emphasizewidget = () => {
     const [queryList, SetQueryList] = React.useState<Queryprops[]>([]);
     const [count, setCount] = React.useState<number>(0);
@@ -33,19 +32,19 @@ const Emphasizewidget = () => {
         SetQueryList(newList);
     }
 
-    async function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void>  { 
-        const results= await updateEmphasis (queryList);
-        const newList= queryList.map((q: Queryprops) => {
-            const e =results.find((er: QueryError) => {
-                return q.id === er.id;
-            });
-        if (e){
-        return {...q, valid: false, errormessage: e.message}
-        }
-        return {...q, valid: true, errormessage: ""}
-        });
-        SetQueryList(newList);
-    }
+
+    async function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
+        const queryErrors = await updateEmphasis (queryList);
+        const newList = queryList.map((q:Queryprops) => {
+            const e = queryErrors.find((qe: QueryError) =>{ return qe.id === q.id});
+            if(e) {
+                return {...q, valid:false, errormessage: e.message}
+            }
+            return{...q, valid:true, errormessage:""}
+    })
+    SetQueryList(newList);
+}
+
     const queryElements: JSX.Element[] = [];
     queryList.forEach((p: Queryprops) => {
         queryElements.push(<Querycompt key={p.id} props={p} handleChange={queryChanged} removeClick={removedclick} />)

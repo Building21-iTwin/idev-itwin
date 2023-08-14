@@ -66,7 +66,7 @@ QueryComponentProps) => {
                 style={{ width: '100%' }}
                 disabled={!checkBoxChecked} label={undefined} 
                 status= {s}
-                message= ""     />
+                message= {props.errormessage}     />
         </Flex>
     )
 };
