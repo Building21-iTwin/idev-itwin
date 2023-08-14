@@ -3,12 +3,15 @@ import { Button, Textarea } from '@itwin/itwinui-react';
 import { Checkbox, Flex } from '@itwin/itwinui-react';
 import { ColorDef } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
+import {LabeledTextarea, FlexProps}from '@itwin/itwinui-react';
 
 export interface Queryprops {
     id: number;
     enabled: boolean;
     color: ColorDef;
     query: string;
+    valid?:boolean;
+    errormessage?:string;
 }
 
 export interface QueryComponentProps {
@@ -21,8 +24,8 @@ const Querycompt = ({
     props,
     handleChange,
     removeClick
-}:     
-QueryComponentProps) => {
+}:
+    QueryComponentProps) => {
     const [value, setvalue] = React.useState<string>(props.query);
     const [checkBoxChecked, setCheckBoxChecked] = React.useState<boolean>(props.enabled);
     const [color, setColor] = React.useState<ColorDef>(props.color);
@@ -48,20 +51,25 @@ QueryComponentProps) => {
         handleChange(props);
         setColor(color);
     }
-    
+
     return (
-     <Flex style={{padding: '5px', width: '100%' }}>
-       <Checkbox label=""defaultChecked={checkBoxChecked} onChange={checked} />
-       <ColorPickerButton disabled={!checkBoxChecked} onColorPick={colorChanged} initialColor={color} />
-         <Button styleType='high-visibility' onClick={remove}>Remove</Button>
-         <Textarea
-             id='text-area'
-             value={value}
-             onChange={queryChanged}
-             style={{ width: '100%' }}
-            disabled={!checkBoxChecked}
+        <Flex style={{ padding: '5px', width: '100%' }}>
+            <Checkbox label="" defaultChecked={checkBoxChecked} onChange={checked} />
+            <ColorPickerButton disabled={!checkBoxChecked} onColorPick={colorChanged} initialColor={color} />
+            <Button styleType='high-visibility' onClick={remove}>Remove</Button>
+            <LabeledTextarea
+            label=""
+                id='text-area'
+                value={value}
+                onChange={queryChanged}
+                style={{ width: '100%' }}
+                disabled={!checkBoxChecked}
+                placeholder='Labeled textarea'
+                status='negative'
+                message={props.errormessage}
             />
         </Flex>
     )
 };
+
 export default Querycompt
