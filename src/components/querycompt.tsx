@@ -4,34 +4,35 @@ import { Checkbox, Flex } from '@itwin/itwinui-react';
 import { ColorDef } from '@itwin/core-common';
 import { ColorPickerButton } from '@itwin/imodel-components-react';
 
-export interface Queryprops {
-    id: number;
-    enabled: boolean;
-    color: ColorDef;
-    query: string;
-    valid?: boolean;
-    errormessage?: string
-}
+    export interface Queryprops {
+        id: number;
+        enabled: boolean;
+        color: ColorDef;
+        query: string;
+        valid?: boolean;
+        errormessage?: string
+    }
 
-export interface QueryComponentProps {
-    props: Queryprops;
-    handleChange(newProps: Queryprops): void;
-    removeClick(id: number): void;
-}
+    export interface QueryComponentProps {
+        props: Queryprops;
+        handleChange(newProps: Queryprops): void;
+        removeClick(id: number): void;
+    }
 
-const Querycompt = ({
-    props,
-    handleChange,
-    removeClick
-}:     
-QueryComponentProps) => {
-    const [value, setvalue] = React.useState<string>(props.query);
-    const [checkBoxChecked, setCheckBoxChecked] = React.useState<boolean>(props.enabled);
-    const [color, setColor] = React.useState<ColorDef>(props.color);
-    
-    function remove(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        removeClick(props.id)
-    };
+    const Querycompt = ({
+        props,
+        handleChange,
+        removeClick
+    }:     
+
+    QueryComponentProps) => {
+        const [value, setvalue] = React.useState<string>(props.query);
+        const [checkBoxChecked, setCheckBoxChecked] = React.useState<boolean>(props.enabled);
+        const [color, setColor] = React.useState<ColorDef>(props.color);
+        
+        function remove(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+            removeClick(props.id)
+        };
 
     function checked(event: React.ChangeEvent<HTMLInputElement>): void {
         props.enabled = event.target.checked;
@@ -50,6 +51,7 @@ QueryComponentProps) => {
         handleChange(props);
         setColor(color);
     }
+
     let s:undefined | "positive" | "negative"= undefined
     if (props.valid=== true) {s= 'positive'}
     if (props.valid=== false) {s= 'negative'}
