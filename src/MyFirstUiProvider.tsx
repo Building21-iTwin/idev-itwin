@@ -16,22 +16,26 @@ export class MyFirstUiProvider implements UiItemsProvider {
     _location: StagePanelLocation,
     _section?: StagePanelSection
   ): ReadonlyArray<Widget> {
-    const widgets: Widget[] = [];
     
-    const DW: Widget = {
-      id: 'DebugWidget',
-      label:'DebugWidget', 
-      content: <DebugWidget/>
+    const widgets: Widget[] = [];
+    if (_location === StagePanelLocation.Left) {
+      const DW: Widget = {
+        id: 'DebugWidget',
+        label:'DebugWidget', 
+        content: <DebugWidget/>
+      }
+      widgets.push(DW)
     }
-    widgets.push(DW)
-
-    const EW: Widget = {
-      id: 'EmphasizeWidget',
-      label: 'EmphasizeWidget',
-      content: <Emphasizewidget/>
+    
+    if(_location === StagePanelLocation.Bottom){
+      const EW: Widget = {
+        id: 'EmphasizeWidget',
+        label: 'EmphasizeWidget',
+        content: <Emphasizewidget/>
+      }
+      widgets.push(EW) 
     }
-    widgets.push(EW)
-
+    
     return widgets;
 
   }
