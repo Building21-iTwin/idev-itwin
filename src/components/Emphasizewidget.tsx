@@ -65,10 +65,6 @@ const Emphasizewidget = () => {
             {queryElements}
         </Flex>
         <p>
-        <small><b>Instructions: The below paragraphs will show you how to properly make use of the website, as well as inform you 
-            of what each indidvidual button does, and how it works</b>
-        </small></p>
-        <p>
         <small><b>Add Button: Upon pressing the add button, the website will create a list of quries in the form of a text box on the right, 
             a check box which opens and closes the text box so the user can properly right text in it, a color box that allows the user to 
             change the color of the text within the text box, and a remove button which removes the query that the add button created</b></small>
@@ -76,7 +72,14 @@ const Emphasizewidget = () => {
         <p><small><b>
             Emphasize Button: The Emphasize Button allows the use to change the properties of a selected item in the 3d model. 
             This is done by selecting an item in the 3d model, viewing its Generic:PhysicalObject: in the Debug Widget. 
-            Example: 0x20000000311. Then, type in   </b></small></p>
+            Then, type in: Select EcInstanceId From Generic:PhysicalObject. This changes the color of the selected part of the 3d model
+        </b></small></p>
+        <p>
+        <small><b>
+            Clear Button: Upon pressing the Clear Button, the queries with the text boxs that were created by the Add Button, are deleted, and disappear completely
+            from the site. The button is similar to the Remove Button, but is more effective with deleting any queries created by the Add Button
+        </b></small>
+        </p>
     </div>);
 };
 export default Emphasizewidget
