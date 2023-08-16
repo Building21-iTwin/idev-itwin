@@ -64,7 +64,12 @@ const Emphasizewidget = () => {
         <Flex flexDirection="column">
             {queryElements}
         </Flex>
-
+        <p>
+        <b><big>HelloH</big></b>
+        </p>
+        <p>
+        <b><big>Hello</big></b>
+        </p>
     </div>);
 };
 export default Emphasizewidget
