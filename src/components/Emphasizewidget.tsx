@@ -65,7 +65,7 @@ const Emphasizewidget = () => {
             {queryElements}
         </Flex>
         <p>
-        <small><b>Add Button: Upon pressing the add button, the website will create a list of quries in the form of a text box on the right, 
+        <small><b>Add Button: Upon pressing the add button, the website will create a list of queries in the form of a text box on the right, 
             a check box which opens and closes the text box so the user can properly right text in it, a color box that allows the user to 
             change the color of the text within the text box, and a remove button which removes the query that the add button created</b></small>
         </p>
