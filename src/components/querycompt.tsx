@@ -60,7 +60,7 @@ import { ColorPickerButton } from '@itwin/imodel-components-react';
      <Flex style={{padding: '5px', width: '100%' }}>
        <Checkbox label=""defaultChecked={checkBoxChecked} onChange={checked} />
        <ColorPickerButton disabled={!checkBoxChecked} onColorPick={colorChanged} initialColor={color} />
-         <Button styleType='high-visibility' onClick={remove}>Remove</Button>
+         <Button styleType='default' onClick={remove}>Remove</Button>
          <LabeledTextarea
                 id='text-area'
                 value={value}
