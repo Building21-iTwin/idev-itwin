@@ -36,14 +36,12 @@ const Emphasizewidget = () => {
     async function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
         const queryErrors = await updateEmphasis (queryList);
         const newList = queryList.map((q:Queryprops) => {
-
-          const e = queryErrors.find((qe: QueryError) => { return qe.id === q.id});
-        if(e) {
-          return {...q, valid:false, errorMessage: e.message}
-        }
-        return {...q, value:true, errorMessage: ""}
-
-    })
+            const e = queryErrors.find((qe: QueryError) => { return qe.id === q.id});
+            if(e) {
+                return {...q, valid:false, errormessage: e.message}
+            }
+            return {...q, valid:true, errormessage: ""}
+        })
     SetQueryList(newList);
 }
 
