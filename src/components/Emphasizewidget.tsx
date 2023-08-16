@@ -32,14 +32,17 @@ const Emphasizewidget = () => {
         SetQueryList(newList);
     }
 
-    async function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> { 
+
+    async function emphasizeQuery(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
         const queryErrors = await updateEmphasis (queryList);
         const newList = queryList.map((q:Queryprops) => {
+
           const e = queryErrors.find((qe: QueryError) => { return qe.id === q.id});
         if(e) {
-          return {...q, valid:false, errorMessage: e.Message}
+          return {...q, valid:false, errorMessage: e.message}
         }
         return {...q, value:true, errorMessage: ""}
+
     })
     SetQueryList(newList);
 }
@@ -63,7 +66,12 @@ const Emphasizewidget = () => {
         <Flex flexDirection="column">
             {queryElements}
         </Flex>
-
+        <p>
+        <b><big>HelloH</big></b>
+        </p>
+        <p>
+        <b><big>Hello</big></b>
+        </p>
     </div>);
 };
 export default Emphasizewidget
