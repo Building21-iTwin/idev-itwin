@@ -70,9 +70,9 @@ const Emphasizewidget = () => {
             change the color of the text within the text box, and a remove button which removes the query that the add button created</b></small>
         </p>
         <p><small><b>
-            Emphasize Button: The Emphasize Button allows the use to change the properties of a selected item in the 3d model. 
-            This is done by selecting an item in the 3d model, viewing its Generic:PhysicalObject: in the Debug Widget. 
-            Then, type in: Select EcInstanceId From Generic:PhysicalObject. This changes the color of the selected part of the 3d model
+            Emphasize Button: The Emphasize Button allows the user to change the properties of a selected item in the 3d model. 
+            This is done by selecting an item in the 3d model, viewing it's class in the Debug Widget. 
+            Then, type in: Select EcInstanceId From (Whatever the class may be). This changes the color of the selected part of the 3d model
         </b></small></p>
         <p>
         <small><b>
